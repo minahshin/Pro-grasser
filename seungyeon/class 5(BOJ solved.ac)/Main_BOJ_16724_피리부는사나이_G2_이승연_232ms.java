@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Main_BOJ_16724_피리부는사나이_G2_이승연_240ms {
+public class Main_BOJ_16724_피리부는사나이_G2_이승연_232ms {
 	private static int[] parents;
 
 	public static void main(String[] args) throws IOException {
@@ -28,8 +28,8 @@ public class Main_BOJ_16724_피리부는사나이_G2_이승연_240ms {
 			for(int j=0; j<M; j++) {
 				int idx = i*M + j;
 				int next_idx = findNext(i, j, map, N, M);
-				if(next_idx == -1) result++; // 범위를 넘어가는 경우 
-				else if(!union(idx, next_idx)) result++; // union이 불가능한 경우 -> cycle이 만들어지는 경우
+//				if(next_idx == -1) result++; // 범위를 넘어가는 경우 
+				if(!union(idx, next_idx)) result++; // union이 불가능한 경우 -> cycle이 만들어지는 경우
 			}
 		}
 		
@@ -74,10 +74,6 @@ public class Main_BOJ_16724_피리부는사나이_G2_이승연_240ms {
 			nc += 1;
 		}
 		
-		if(nr < 0 || nr >= N || nc < 0 || nc >= M) {
-			return -1; 
-		} else {
-			return nr*M + nc;
-		}
+		return nr*M + nc;
 	}
 }
